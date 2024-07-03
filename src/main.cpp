@@ -89,7 +89,6 @@ void process_data(String btData){
 
   } if (DEBUG){Serial.println("BTDATA" + String(btData));}
 
-  
   dmx.update();
 
 }
@@ -117,9 +116,7 @@ void process_bt_data(String recieved_data)
     String required_data = recieved_data.substring(seperation_index + 1);
     brightness = required_data.toInt();
     updateBrightness(brightness);
-    if (DEBUG) {
-      Serial.println("BRIGHTNESS: " + String(brightness));
-    }
+    if (DEBUG) { Serial.println("BRIGHTNESS: " + String(brightness)); }
   }
 }
 
@@ -142,6 +139,9 @@ void setup() {
   pinMode(SSR2, OUTPUT);
   digitalWrite(SSR1, HIGH);
   digitalWrite(SSR2, HIGH);
+
+  // digitalWrite(SSR1, LOW);
+  // digitalWrite(SSR2, LOW);
   dmx.initWrite(500);
 
   all_dmx_off();
